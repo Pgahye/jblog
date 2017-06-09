@@ -12,16 +12,20 @@
 </head>
 <body>
 	<div class="center-content">
-		<h1 class="logo">JBlog</h1>
-		<ul class="menu">
-			<li><a href="">로그인</a></li>
-			<li><a href="">회원가입</a></li>
-			<li><a href="">로그아웃</a></li>
-			<li><a href="">내블로그</a></li>
-		</ul>
-		<form class="login-form">
+		
+			<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
+		
+		<form class="login-form" id="login-form" name="loginform" method="post" action="${pageContext.servletContext.contextPath }/user/auth">
       		<label>아이디</label> <input type="text" name="id">
       		<label>패스워드</label> <input type="text" name="password">
+      		
+      		<c:choose>
+			<c:when test='${result == "fail" or param.result=="fail"}'>
+			<p> 로그인에 실패했습니다. </p>
+			</c:when>
+					
+			</c:choose>
+      		
       		<input type="submit" value="로그인">
 		</form>
 	</div>

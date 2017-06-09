@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+	
+		
+		<typeAlias alias="uservo" type="com.jx372.jblog.vo.UserVo"/>
+		<typeAlias alias="blogvo" type="com.jx372.jblog.vo.BlogVo"/>
+		<typeAlias alias="categoryvo" type="com.jx372.jblog.vo.CategoryVo"/>
+		<typeAlias alias="postvo" type="com.jx372.jblog.vo.PostVo"/>
+	
+	
+    </typeAliases>	
+    	
+    	<!-- sql문을 저장하는 파일 -->
+	<mappers>
+		<mapper resource="mybatis/mappers/user.xml" />
+		<mapper resource="mybatis/mappers/blog.xml" />
+		<mapper resource="mybatis/mappers/category.xml" />
+			<mapper resource="mybatis/mappers/post.xml" />
+		
+	</mappers>
+</configuration>

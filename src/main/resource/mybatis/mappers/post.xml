@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="post">
+
+	
+	
+		<insert id="insert" parameterType="postvo" > <!-- 값가지고 올때 $$ -->
+	<![CDATA[
+		insert into post values ( null , #{category_no}, #{title}, #{content}, now() )
+	]]>
+	</insert>
+	
+<select id="getlist" resultType="postvo" parameterType="long">  
+		<![CDATA[
+		select  p.no, p.category_no, p.title, p.content, p.reg_date
+		from post p,category c
+		where p.category_no=c.no and user_no=#{user_no}
+		order by reg_date DESC
+		]]>
+	</select>	
+	
+	<select id="get"  parameterType="map" resultType="postvo">  <!-- 객체면 변수 이름으로 해야함 uservo 일경우 vo로, 반환할 타입이 마땅히 없는 경우 map -->
+		<![CDATA[
+		select  p.no, p.category_no, p.title, p.content, p.reg_date
+		from post p,category c
+		where p.category_no=c.no and user_no=#{user_no} and p.no=#{no}
+		]]>
+	</select>
+	
+	
+		<select id="getOne"  parameterType="Long" resultType="postvo">  <!-- 객체면 변수 이름으로 해야함 uservo 일경우 vo로, 반환할 타입이 마땅히 없는 경우 map -->
+		<![CDATA[
+		select   p.no, p.category_no, p.title, p.content, p.reg_date
+		from post p,category c
+		where p.category_no=c.no and user_no=#{user_no} order by reg_date desc LIMIT 1
+		]]>
+	</select>
+	
+	
+	<select id="CagetList" resultType="postvo" parameterType="map">  
+		<![CDATA[
+		select  p.no, p.category_no, p.title, p.content, p.reg_date
+		from post p,category c
+		where p.category_no=c.no and c.user_no=#{user_no} and p.category_no=#{category_no}
+		order by p.reg_date desc
+		]]>
+	</select>	
+	
+	
+		<select id="CagetOne" resultType="postvo" parameterType="map">  
+		<![CDATA[
+		select  p.no, p.category_no, p.title, p.content, p.reg_date
+		from post p,category c
+		where p.category_no=c.no and c.user_no=#{user_no} and p.category_no=#{category_no}
+		order by p.reg_date desc LIMIT 1
+		]]>
+	</select>	
+
+
+</mapper>
