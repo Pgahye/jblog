@@ -24,9 +24,11 @@ public class CategoryDao {
 	}
 
 	
-	public void delete(Long no){
+	public int delete(Long no){
 		
-		sqlSession.delete("category.delete",no);
+		int count = sqlSession.delete("category.delete",no);
+		
+		return count;
 		
 	}
 	

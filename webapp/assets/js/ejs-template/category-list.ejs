@@ -1,0 +1,17 @@
+<%
+	for(var i=0; i<data.length; i++){
+	
+	var vo = data[i];
+
+%>
+<tr><td><%=vo.no%></td>
+<td><%=vo.name%></td>  
+<td>10</td> 
+<td><%=vo.description%></td><td> 
+<a href='' data-no='<%=vo.no%>'>삭제</a>
+<img src="/jblog/assets/images/delete.jpg" ></a></td></tr>
+<%
+ }
+%>
+
+

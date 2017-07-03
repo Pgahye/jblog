@@ -148,7 +148,7 @@ public class BlogController {
 		
 		categoryvo.setUser_no(uservo.getNo());
 	
-		categoryService.insert(categoryvo);
+		//categoryService.insert(categoryvo);
 		
 		
 		

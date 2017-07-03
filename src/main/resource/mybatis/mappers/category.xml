@@ -7,14 +7,26 @@
 	<insert id="insertUser" parameterType="categoryvo" >
 	<![CDATA[
 		insert into category values (  null , #{user_no }, #{name}, #{description}, now() )
-	]]>
+	]]>	
+			<selectKey keyProperty="no" resultType="Long" order="AFTER">
+		select last_insert_id()
+	</selectKey>
+		
+
 	</insert>
 	
 	<insert id="insert" parameterType="uservo" >
 	<![CDATA[
 		insert into category values (  null , #{no }, '기타', '기본카테고리', now() )
 	]]>
+		
+		
+
 	</insert>
+	
+	
+
+	
 	
 	<select id="getByNo" resultType="categoryvo" parameterType="long">  
 		<![CDATA[

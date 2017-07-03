@@ -31,10 +31,12 @@ public class CategoryService {
 		
 	}
 	
-	public void delete(Long no){
+
+	
+	public boolean delete(Long no){
 		
 		
-		categoryDao.delete(no);
+		return  1 == categoryDao.delete(no);
 	}
 	
 
